@@ -9,6 +9,7 @@ import multer from 'multer';
 
 const app = express();
 const upload = multer({ dest: 'uploads/' });
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
@@ -25,7 +26,7 @@ app.use('/admin', router);
 app.use('/api', skillRouter);
 app.use('/api', contactRoutes);
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log('Server is running on port 3000');
   connectDB();
 });
